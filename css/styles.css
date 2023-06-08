@@ -5,6 +5,9 @@
   --cloud: #f4f4fd;
   --slate: #434455;
   --ocean: #404bbf;
+  --light-slate: #8e8f99;
+  --green: #31d0aa;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* *,
@@ -91,6 +94,9 @@ body {
   align-items: center;
   gap: 40px;
 }
+.header-list-item {
+  position: relative;
+}
 .header-title {
   font-family: Raleway, sans-serif;
   font-weight: 800;
@@ -115,8 +121,20 @@ body {
 }
 .header-links:hover,
 .header-links:focus {
-  color: #404bbf;
+  color: var(--ocean);
 }
+.current::after {
+  content: "";
+  background-color: var(--ocean);
+  border-radius: 2px;
+  width: 48px;
+  height: 4px;
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  transform: translateX(-50%);
+}
+
 .header-contacts {
   font-style: normal;
   letter-spacing: 0.02em;
@@ -171,6 +189,16 @@ body {
 .main-section {
   background-color: var(--navy);
   padding: 188px 0;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* max-width: 1440px;
+  margin: 0 auto; */
 }
 .features {
   padding: 120px 0;
@@ -181,6 +209,20 @@ body {
 }
 .features-items {
   width: calc((100% - 72px) / 4);
+}
+.features-icon-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cloud);
+  width: 264px;
+  height: 112px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.features-icons {
+  width: 64px;
+  height: 64px;
 }
 .features-title {
   font-weight: 500;
@@ -225,6 +267,9 @@ body {
 .team-item-job {
   background-color: var(--white);
   padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .team-container {
   background-color: var(--cloud);
@@ -240,7 +285,6 @@ body {
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--navy);
-  margin-bottom: 8px;
   text-align: center;
 }
 .team-text {
@@ -251,10 +295,83 @@ body {
   color: var(--slate);
   text-align: center;
 }
+.team-soc {
+  display: flex;
+  gap: 24px;
+}
+.team-soc-icon {
+  width: 16px;
+  height: 16px;
+}
+.team-soc-item {
+  background-color: var(--iris);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.team-soc-item:hover,
+.team-soc-item:focus {
+  background-color: var(--ocean);
+}
+
+/** ------------------CUSTOMERS ------------------ */
+.customers-container {
+  padding: 120px 0;
+}
+.customers-list {
+  display: flex;
+  gap: 24px;
+}
+.customers-list-item {
+  width: 168px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: var(--light-slate) solid 2px;
+  cursor: pointer;
+}
+.customers-list-item:hover .customers-icon,
+.customers-list-item:focus .customers-icon,
+.customers-list-item:hover,
+.customers-list-item:focus {
+  fill: var(--ocean);
+  border-color: var(--ocean);
+}
+
+.customers-icon {
+  fill: var(--light-slate);
+}
+
 /** ------------------PORTFOLIO.HTML------------------ */
 .filter {
   padding: 96px 0 120px 0;
 }
+.filter-image {
+  position: relative;
+  overflow: hidden;
+}
+.filter-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--cloud);
+  background-color: var(--iris);
+  transition: transform var(--transition);
+  transform: translateY(100%);
+  padding: 40px 32px;
+}
+.filter-image:hover .filter-image-overlay {
+  transform: translateY(0);
+}
+
 .portfolio-filter {
   display: flex;
   gap: 24px;
@@ -331,4 +448,37 @@ body {
   text-transform: uppercase;
   margin-bottom: 16px;
   display: inline-block;
+}
+.footer-container {
+  display: flex;
+  gap: 120px;
+}
+.footer-soc {
+}
+.footer-soc > p {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.footer-soc-list {
+  display: flex;
+  gap: 16px;
+}
+.footer-soc-item {
+  background-color: var(--iris);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.footer-soc-item:hover,
+.footer-soc-item:focus {
+  background-color: var(--green);
+}
+
+.footer-soc-icon {
+  width: 24px;
+  height: 24px;
 }
