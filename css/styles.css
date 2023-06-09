@@ -386,22 +386,25 @@ body {
   position: relative;
   overflow: hidden;
 }
-.filter-image-overlay {
+.filter-image:hover .filter-overlay-text {
+  transform: translateY(0);
+}
+.filter-overlay-text {
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cloud);
+  padding: 40px 32px;
+  background-color: var(--iris);
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--cloud);
-  background-color: var(--iris);
   transition: transform var(--transition);
   transform: translateY(100%);
-  padding: 40px 32px;
 }
-.filter-image:hover .filter-image-overlay {
-  transform: translateY(0);
-}
-
 .portfolio-filter {
   display: flex;
   gap: 24px;
@@ -415,11 +418,14 @@ body {
 }
 .filter-items {
   width: calc((100% - 48px) / 3);
+}
+.filter-link {
+  display: block;
   cursor: pointer;
   transition: box-shadow var(--transition);
 }
-.filter-items:hover,
-.filter-items:focus {
+.filter-link:hover,
+.filter-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -479,6 +485,9 @@ body {
   letter-spacing: 0.02em;
   max-width: 264px;
 }
+.footer-copyright {
+  margin-right: 120px;
+}
 .footer-title {
   font-family: Raleway, sans-serif;
   font-weight: 800;
@@ -492,10 +501,15 @@ body {
 }
 .footer-container {
   display: flex;
-  gap: 120px;
+  align-items: baseline;
 }
 .footer-soc {
 }
+.footer-soc-title {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .footer-soc > p {
   color: var(--white);
   margin-bottom: 16px;
@@ -505,9 +519,13 @@ body {
   gap: 16px;
 }
 .footer-soc-item {
-  background-color: var(--iris);
   width: 40px;
   height: 40px;
+}
+.footer-soc-link {
+  width: 100%;
+  height: 100%;
+  background-color: var(--iris);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -515,14 +533,13 @@ body {
   cursor: pointer;
   transition: background-color var(--transition);
 }
-.footer-soc-item:hover,
-.footer-soc-item:focus {
+.footer-soc-link:hover,
+.footer-soc-link:focus {
   background-color: var(--green);
 }
 
 .footer-soc-icon {
-  width: 24px;
-  height: 24px;
+  fill: var(--cloud);
 }
 
 /** ------------------BACKDROP------------------ */
@@ -531,14 +548,15 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color: rgba(1, 1, 1, 0.6);
+  background-color: rgba(46, 47, 66, 0.4);
   top: 0;
   left: 0;
+  transition: opacity var(--transition), visibility var(--transition);
 }
 .modal {
   width: 408px;
   min-height: 584px;
-  position: fixed;
+  position: absolute;
   background-color: var(--dairy);
   left: 50%;
   top: 50%;
@@ -553,6 +571,7 @@ body {
   transform: translate(-50%, -50%) scale(0);
 }
 .modal-btn {
+  padding: 0;
   width: 24px;
   height: 24px;
   position: absolute;
@@ -566,18 +585,17 @@ body {
   justify-content: center;
   cursor: pointer;
   fill: var(--navy);
-  transition: background-color var(--transition), border-color var(--transition),
+  transition: background-color var(--transition), border var(--transition),
     fill var(--transition);
 }
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: var(--ocean);
   fill: var(--white);
-  border-color: transparent;
+  border: none;
 }
 .modal-close-icon {
-  width: 8px;
-  height: 8px;
+  transition: fill var(--transition);
 }
 .is-hidden {
   opacity: 0;
