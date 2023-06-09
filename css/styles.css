@@ -386,8 +386,9 @@ body {
   position: relative;
   overflow: hidden;
 }
-.filter-image:hover .filter-overlay-text {
-  transform: translateY(0);
+.filter-link:hover .filter-overlay-text,
+.filter-link:focus .filter-overlay-text {
+  transform: translateY(0%);
 }
 .filter-overlay-text {
   top: 0;
@@ -585,13 +586,11 @@ body {
   justify-content: center;
   cursor: pointer;
   fill: var(--navy);
-  transition: background-color var(--transition), border var(--transition),
-    fill var(--transition);
+  transition: background-color var(--transition), border var(--transition);
 }
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: var(--ocean);
-  fill: var(--white);
   border: none;
 }
 .modal-close-icon {
