@@ -588,8 +588,11 @@ body {
   fill: var(--navy);
   transition: background-color var(--transition), border var(--transition);
 }
+
 .modal-btn:hover,
-.modal-btn:focus {
+.modal-btn:focus,
+.modal-btn:hover .modal-close-icon,
+.modal-btn:focus .modal-close-icon {
   background-color: var(--ocean);
   border: none;
   fill: var(--white);
