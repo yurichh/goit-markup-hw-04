@@ -158,9 +158,25 @@ body {
 
 /** ------------------MAIN------------------ */
 
+.main-section {
+  background-color: var(--navy);
+  padding: 188px 0;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 1440px;
+  height: 600px;
+  margin: 0 auto;
+}
 .main-container {
   text-align: center;
 }
+
 .page-title {
   font-weight: 700;
   font-size: 56px;
@@ -194,22 +210,6 @@ body {
 .button-order-service:focus {
   background-color: var(--ocean);
 }
-.main-section {
-  background-color: var(--navy);
-  padding: 188px 0;
-  background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url(../images/people-office.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  max-width: 1440px;
-  height: 600px;
-  margin: 0 auto;
-}
-
 /** ------------------FEATURES------------------ */
 
 .features {
@@ -368,15 +368,41 @@ body {
 
 .customers-link:hover,
 .customers-link:focus {
-  color: var(--ocean);
   border-color: var(--ocean);
 }
-
+.customers-link:hover .customers-icon,
+.customers-link:focus .customers-icon {
+  fill: var(--ocean);
+}
 .customers-icon {
   fill: currentColor;
+  transition: color var(--transition);
 }
 
 /** ------------------PORTFOLIO.HTML------------------ */
+.portfolio-button {
+  cursor: pointer;
+  background-color: var(--cloud);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--iris);
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: 1px solid #e7e9fc;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition), box-shadow var(--transition);
+}
+.portfolio-button:hover,
+.portfolio-button:focus {
+  color: var(--white);
+  background-color: var(--ocean);
+  border-color: transparent;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
 .filter {
   padding: 96px 0 120px 0;
 }
@@ -420,7 +446,6 @@ body {
 }
 .filter-link {
   display: block;
-  cursor: pointer;
   transition: box-shadow var(--transition);
   color: inherit;
 }
@@ -446,29 +471,6 @@ body {
 }
 .portfolio-text {
   letter-spacing: 0.02em;
-}
-.portfolio-button {
-  cursor: pointer;
-  background-color: var(--cloud);
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: var(--iris);
-  padding: 12px 24px;
-  border-radius: 4px;
-  border: 1px solid #e7e9fc;
-  transition: background-color var(--transition), color var(--transition),
-    border-color var(--transition), box-shadow var(--transition);
-}
-.portfolio-button:hover,
-.portfolio-button:focus {
-  color: var(--white);
-  background-color: var(--ocean);
-  border-color: transparent;
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /** ------------------FOOTER------------------ */
@@ -558,8 +560,7 @@ body {
   background-color: var(--dairy);
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scaley(100%);
-  opacity: 1;
+  transform: translate(-50%, -50%) scaleY(100%);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -567,7 +568,7 @@ body {
 }
 .backdrop.is-hidden .modal {
   transition: transform var(--transition), opacity var(--transition);
-  transform: translate(-50%, -50%) scaley(0);
+  transform: translate(-50%, -50%) scaleY(0);
   opacity: 0;
 }
 .modal-btn {
